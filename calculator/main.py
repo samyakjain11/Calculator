@@ -6,6 +6,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def basicCalculatorMode():
     print("CALCULATIONS MODE")
     prob = ""
@@ -15,8 +16,9 @@ def basicCalculatorMode():
             prob = input()
             print(eval(bytes([ord(p) for p in prob])))
         except:
-             if prob != "q":
-                 print("invalid prompt")
+            if prob != "q":
+                print("invalid prompt")
+
 
 def graphingCalculatorMode():
     print("GRAPHING MODE")
@@ -36,7 +38,6 @@ def graphingCalculatorMode():
                 break
             else:
                 lowerRange = int(lowerRange)
-
 
             # intializing higher range
             print("enter higher range")
@@ -59,44 +60,53 @@ def graphingCalculatorMode():
         except:
             print("invalid prompt")
 
-mode = ""
 
-while mode != "q":
+def helpMode():
     print("""
-    1. c (Normal Calculator)
-    2. g (Graphing Calculator)
-    3. h (Help)
-    4. q (Quit)
-    """)
+             1. Do not put parenthesis while multiplying
+             2. Put 'np." before using any of the numpy functions
+             3. h (Help)
+             4. q (Quit)
+                    """)
 
-    mode = input().lower()
 
-    if mode == "c":
-        basicCalculatorMode()
-    elif mode == "g":
-        graphingCalculatorMode()
-    elif mode == "h":
+def quitMode():
+    print("thank you for using my calculator!")
+    exit()
+
+
+def main():
+    mode = ""
+
+    while mode != "q":
         print("""
-            1. Do not put parenthesis while multiplying
-            2. Put 'np." before using any of the numpy functions
-            3. h (Help)
-            4. q (Quit)
-            """)
-    else:
-        print("hi")
+        1. c (Normal Calculator)
+        2. g (Graphing Calculator)
+        3. h (Help)
+        4. q (Quit)
+        """)
+
+        mode = input().lower()
+
+        if mode == "c" or mode == "1":
+            basicCalculatorMode()
+        elif mode == "g" or mode == "2":
+            graphingCalculatorMode()
+        elif mode == "h" or mode == "3":
+            helpMode()
+        elif mode == "q" or mode == "4":
+            quitMode()
+        else:
+            print("invalid input, please try again")
 
 
-
-
-
-
-#def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    #print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+# def print_hi(name):
+# Use a breakpoint in the code line below to debug your script.
+# print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
 
 
 # Press the green button in the gutter to run the script.
-#if __name__ == '__main__':
-    #print_hi('PyCharm')
+if __name__ == '__main__':
+    main()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
